@@ -3,6 +3,7 @@ import './App.css';
 import Intro from './components/Intro';
 import GlobalTrend from './components/GlobalTrend';
 import TableOfContents from './components/TableOfContents';
+import UseCases from './components/UseCases';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <main>
         <Intro />
         <GlobalTrend />
+        <UseCases />
       </main>
     </div>
   );
