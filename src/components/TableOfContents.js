@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 const sections = [
   { id: 'intro', title: 'Intro' },
   { id: 'globalTrend', title: 'Global Trends' },
-  { id: 'useCases', title: 'Use Cases' }
+  { id: 'useCases', title: 'Use Cases' },
+  { id: 'challenges', title: 'Challenges' },
+  { id: 'currentState', title: 'Current State' }
 ];
 
 const TableOfContents = () => {
