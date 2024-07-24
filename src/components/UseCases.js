@@ -25,14 +25,14 @@ const UseCases = () => {
 
   return (
     <section className="use-cases" id="useCases">
-      <h2>Let's look at examples of AI use cases in banks</h2>
+      <h2>AI Use Cases in Banking</h2>
       <div className="use-cases-content">
         <div className="use-cases-container">
           <div className="circles-container">
             {useCases.map((useCase) => (
               <div
                 key={useCase.id}
-                className={`circle ${hoveredCategory === useCase.category ? 'active' : ''}`}
+                className={`circle ${hoveredCategory === useCase.category || categories.find(cat => cat.color === useCase.color)?.name.toLowerCase() === hoveredCategory ? 'active' : ''}`}
                 style={{ backgroundColor: useCase.color }}
                 onMouseEnter={() => setHoveredUseCase(useCase)}
                 onMouseLeave={() => setHoveredUseCase(null)}
@@ -61,7 +61,7 @@ const UseCases = () => {
       <div className="category-example">
         {hoveredCategory 
           ? categories.find(cat => cat.name.toLowerCase() === hoveredCategory).example
-          : "Hover over categories on the right to discover how leading global banks are implementing AI in their operations."}
+          : "Explore how leading global banks are leveraging AI. Hover over categories to see real-world examples."}
       </div>
     </section>
   );
