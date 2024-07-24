@@ -11,11 +11,11 @@ const Intro = () => {
   }, []);
 
   const imageStyle = {
-    transform: `scale(${1 + scrollY * 0.001}) rotate(${scrollY * 0.05}deg)`,
+    transform: `scale(${1 + scrollY * 0.0006}) rotate(${scrollY * 0.05}deg)`,
   };
 
   return (
-    <section className="intro-section">
+    <section id="intro" className="intro-section">
       <div className="left-content">
         <h2 className="subtitle">Measure your bank's AI adoption</h2>
         <h1 className="title">AI Solutions for Banks</h1>
