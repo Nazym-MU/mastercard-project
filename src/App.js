@@ -4,6 +4,7 @@ import Intro from './components/Intro';
 import GlobalTrend from './components/GlobalTrend';
 import TableOfContents from './components/TableOfContents';
 import UseCases from './components/UseCases';
+import Challenges from './components/Challenges';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Intro />
         <GlobalTrend />
         <UseCases />
+        <Challenges />
       </main>
     </div>
   );

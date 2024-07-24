@@ -303,47 +303,83 @@ body {
 }
 
 
-/* Responsive design */
+/* Challenges */
 
-@media (max-width: 1024px) {
-  .use-cases {
-    padding: 3rem;
-  }
-
-  .use-cases-content {
-    flex-direction: column;
-  }
-
-  .legend-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  }
+.challenges {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  padding-right: 10rem;
 }
 
-@media (max-width: 768px) {
-  .use-cases {
-    padding: 2rem;
-  }
+.challenges h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: left;
+  color: #f79e1b;
+}
 
-  .use-cases h2 {
-    font-size: 2rem;
-  }
+.challenges-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 400px;
+}
 
-  .circle {
-    width: 60px;
-    height: 60px;
-  }
+.challenges-left,
+.challenges-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-  .legend-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+.challenges-left p,
+.challenges-right p {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 2;
+}
 
-  .legend-color {
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-  }
+.challenges-middle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 0 2rem;
+}
+
+.challenge-item {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  width: 80%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.challenge-item:hover,
+.challenge-item.active {
+  background-color: rgba(247, 158, 27, 0.3);
+  transform: scale(1.05);
+}
+
+.challenges-left:not(:empty),
+.challenges-right:not(:empty) {
+  opacity: 1;
 }
