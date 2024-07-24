@@ -25,7 +25,7 @@ const UseCases = () => {
 
   return (
     <section className="use-cases" id="useCases">
-      <h2>AI Use Cases in Banking</h2>
+      <h2>Where do banks use AI?</h2>
       <div className="use-cases-content">
         <div className="use-cases-container">
           <div className="circles-container">

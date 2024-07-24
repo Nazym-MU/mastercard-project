@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const sections = [
   { id: 'intro', title: 'Intro' },
-  { id: 'globalTrend', title: 'Global Trends' }
+  { id: 'globalTrend', title: 'Global Trends' },
+  { id: 'useCases', title: 'Use Cases' }
 ];
 
 const TableOfContents = () => {
@@ -33,7 +34,7 @@ const TableOfContents = () => {
       {sections.map((section, index) => (
         <React.Fragment key={section.id}>
           <a
-            href={`#${section.id}`} 
+            href={`#${section.id}`}
             className={`toc-item ${activeSection === section.id ? 'active' : ''}`}
           >
             {section.title}
