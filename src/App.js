@@ -9,6 +9,7 @@ import GapAnalysis from './components/GapAnalysis';
 import SwotAnalysis from './components/SwotAnalysis';
 import Survey from './components/Survey';
 import Problem from './components/Problem';
+import Plan from './components/Plan';
 import TableOfContents from './components/TableOfContents';
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Survey />
         <SwotAnalysis />
         <Problem />
+        <Plan />
       </main>
     </div>
   );

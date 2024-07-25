@@ -9,7 +9,8 @@ const sections = [
   { id: 'gapAnalysis', title: 'Gap Analysis' },
   { id: 'survey', title: 'Survey' },
   { id: 'swotAnalysis', title: 'SWOT Analysis' },
-  { id: 'problem', title: 'Problem & Needs' }
+  { id: 'problem', title: 'Problem & Need' },
+  { id: 'plan', title: 'Plan' },
 ];
 
 const TableOfContents = () => {

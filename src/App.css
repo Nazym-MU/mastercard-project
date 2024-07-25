@@ -851,3 +851,61 @@ input:checked + .slider:before {
   font-size: 0.9rem;
   opacity: 0.8;
 }
+
+
+
+
+/* Plan */
+
+
+
+.plan {
+  min-height: 200vh;
+  display: flex;
+  background-color: #141414;
+  color: white;
+  position: relative;
+  padding-right: 10rem;
+}
+
+.plan-column {
+  flex: 1;
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.plan-column.middle,
+.plan-column.right {
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hypothesis {
+  font-style: italic;
+  margin: 1rem 0;
+  font-size: 1.1em;
+}
+
+.column-content,
+.additional-content,
+.hypothesis-text {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.plan h2 {
+  font-size: 3rem;
+  color: #F79E1B;
+  margin-bottom: 1rem;
+}
+
+.plan p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}

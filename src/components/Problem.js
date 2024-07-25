@@ -46,7 +46,7 @@ const Problem = () => {
         <div className="problem-left">
           <h2>Summing up, there is a strong need for a comprehensive AI adoption strategy</h2>
           <p>
-            Based on the survey results, SWOT analysis, the global trends, it's clear that Kazakhstan's financial sector needs a well-structured project plan with specific recommendations for AI adoption. This plan should address the current gaps, leverage existing strengths, and align with global best practices while considering local context.
+            Based on the survey results, SWOT analysis, the global trends, it's clear that Kazakhstan's financial sector needs a well-structured project plan with specific recommendations for AI adoption tailored to a specific bank. This plan should address the current gaps, leverage existing strengths, and align with global best practices while considering local context.
           </p>
         </div>
         <div className="problem-right">
