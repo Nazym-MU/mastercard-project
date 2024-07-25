@@ -503,12 +503,12 @@ body {
   color: #f79e1b;
 }
 
-.circles-container {
+.circles-container-bank {
   position: relative;
   height: 500px;
 }
 
-.circle {
+.circle-bank {
   position: absolute;
   border-radius: 50%;
   background-color: rgba(247, 158, 27, 0.7);

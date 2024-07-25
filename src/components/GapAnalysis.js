@@ -16,7 +16,7 @@ const Circle = ({ name, percentage, top, left, onClick }) => {
   const size = Math.max(80, percentage * 4);
   return (
     <div
-      className="circle"
+      className="circle-bank"
       style={{
         width: `${size}px`,
         height: `${size}px`,
@@ -49,7 +49,7 @@ const GapAnalysis = () => {
       <div className="content-wrapper">
         <div className="left-side">
           <h2>Where do they use AI?</h2>
-          <div className="circles-container">
+          <div className="circles-container-bank">
             {aiUseCases.map((useCase) => (
               <Circle
                 key={useCase.name}
