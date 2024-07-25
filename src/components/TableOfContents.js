@@ -5,7 +5,8 @@ const sections = [
   { id: 'globalTrend', title: 'Global Trends' },
   { id: 'useCases', title: 'Use Cases' },
   { id: 'challenges', title: 'Challenges' },
-  { id: 'currentState', title: 'Current State' }
+  { id: 'currentState', title: 'Current State' },
+  { id: 'gapAnalysis', title: 'Gap Analysis' },
 ];
 
 const TableOfContents = () => {

@@ -6,6 +6,7 @@ import TableOfContents from './components/TableOfContents';
 import UseCases from './components/UseCases';
 import Challenges from './components/Challenges';
 import CurrentState from './components/CurrentState';
+import GapAnalysis from './components/GapAnalysis';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <UseCases />
         <Challenges />
         <CurrentState />
+        <GapAnalysis />
       </main>
     </div>
   );
