@@ -2,11 +2,12 @@ import React from 'react';
 import './App.css';
 import Intro from './components/Intro';
 import GlobalTrend from './components/GlobalTrend';
-import TableOfContents from './components/TableOfContents';
 import UseCases from './components/UseCases';
 import Challenges from './components/Challenges';
 import CurrentState from './components/CurrentState';
 import GapAnalysis from './components/GapAnalysis';
+import SwotAnalysis from './components/SwotAnalysis';
+import TableOfContents from './components/TableOfContents';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Challenges />
         <CurrentState />
         <GapAnalysis />
+        <SwotAnalysis />
       </main>
     </div>
   );
