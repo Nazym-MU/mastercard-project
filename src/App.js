@@ -14,6 +14,7 @@ import Interview from './components/Interview';
 import Prototype from './components/Prototype';
 import Acknowledgements from './components/Acknowledgements';
 import TableOfContents from './components/TableOfContents';
+import Footer from './components/Footer';
 
 const App = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -52,6 +53,7 @@ const App = () => {
         <Prototype />
         <Acknowledgements />
       </main>
+      <Footer />
       {showBackToTop && (
         <div className="back-to-top" onClick={scrollToTop}>
           ↑

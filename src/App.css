@@ -1191,3 +1191,14 @@ input:checked + .slider:before {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+
+/* Footer */
+
+.footer {
+  background-color: #0a0a0a;
+  color: #ccc;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
