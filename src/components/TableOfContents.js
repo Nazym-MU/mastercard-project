@@ -7,6 +7,7 @@ const sections = [
   { id: 'challenges', title: 'Challenges' },
   { id: 'currentState', title: 'Current State' },
   { id: 'gapAnalysis', title: 'Gap Analysis' },
+  { id: 'survey', title: 'Survey' },
   { id: 'swotAnalysis', title: 'SWOT Analysis' }
 ];
 

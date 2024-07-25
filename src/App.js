@@ -7,6 +7,7 @@ import Challenges from './components/Challenges';
 import CurrentState from './components/CurrentState';
 import GapAnalysis from './components/GapAnalysis';
 import SwotAnalysis from './components/SwotAnalysis';
+import Survey from './components/Survey';
 import TableOfContents from './components/TableOfContents';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Challenges />
         <CurrentState />
         <GapAnalysis />
+        <Survey />
         <SwotAnalysis />
       </main>
     </div>

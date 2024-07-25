@@ -728,3 +728,52 @@ input:checked + .slider:before {
 .swot-card li {
   margin-bottom: 0.5rem;
 }
+
+
+
+/* Survey */
+
+
+
+.survey {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #141414;
+  color: white;
+  padding-right: 4rem;
+}
+
+.survey h2 {
+  margin-bottom: 0rem;
+  text-align: center;
+  color: #f79e1b;
+  font-size: 2rem;
+}
+
+.survey-subtitle {
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.chart-wrapper {
+  width: 45%;
+  height: 400px;
+}
+
+.chart-wrapper p {
+  text-align: center;
+  margin-top: 1rem;
+}
