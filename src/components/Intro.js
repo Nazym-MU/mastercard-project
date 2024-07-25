@@ -4,6 +4,14 @@ import '../App.css'
 const Intro = () => {
   const [scrollY, setScrollY] = useState(0);
 
+  const scrollToPrototype = (e) => {
+    e.preventDefault();
+    const prototypeSection = document.getElementById('prototype');
+    if (prototypeSection) {
+      prototypeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -19,7 +27,7 @@ const Intro = () => {
       <div className="left-content">
         <h2 className="subtitle">Measure your bank's AI adoption</h2>
         <h1 className="title">AI Solutions for Banks</h1>
-        <button className="get-started-button">Get started</button>
+        <button className="get-started-button" onClick={scrollToPrototype}>Get started</button>
       </div>
       <div className="right-content">
         <div className="image-container">
