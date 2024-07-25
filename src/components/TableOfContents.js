@@ -12,7 +12,8 @@ const sections = [
   { id: 'problem', title: 'Problem & Need' },
   { id: 'plan', title: 'Plan' },
   { id: 'interview', title: 'Interview & Insights' },
-  { id: 'prototype', title: 'Prototype' }
+  { id: 'prototype', title: 'Prototype' },
+  { id: 'acknowledgements', title: 'Acknowledgements' }
 ];
 
 const TableOfContents = () => {

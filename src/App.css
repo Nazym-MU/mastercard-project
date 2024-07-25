@@ -1097,3 +1097,97 @@ input:checked + .slider:before {
   opacity: 1;
 }
 
+
+
+/* Acknowledgements */
+
+
+
+.acknowledgements {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #141414;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.acknowledgements-content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.acknowledgements h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #F79E1B;
+}
+
+.thanks-message {
+  margin-bottom: 7rem;
+  line-height: 1.6;
+}
+
+.credits {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 7rem;
+}
+
+.credit-item h3 {
+  font-size: 1.3rem;
+  color: #F79E1B;
+  margin-bottom: 0.5rem;
+}
+
+.contact-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #F79E1B;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #F79E1B;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link:hover {
+  background-color: #F79E1B;
+  color: #141414;
+}
+
+.link-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #F79E1B;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.social-link:hover .link-underline {
+  transform: scaleX(1);
+  transform-origin: left;
+}

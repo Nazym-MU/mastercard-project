@@ -12,6 +12,7 @@ import Problem from './components/Problem';
 import Plan from './components/Plan';
 import Interview from './components/Interview';
 import Prototype from './components/Prototype';
+import Acknowledgements from './components/Acknowledgements';
 import TableOfContents from './components/TableOfContents';
 
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
         <Plan />
         <Interview />
         <Prototype />
+        <Acknowledgements />
       </main>
       {showBackToTop && (
         <div className="back-to-top" onClick={scrollToTop}>
