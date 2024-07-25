@@ -8,7 +8,8 @@ const sections = [
   { id: 'currentState', title: 'Current State' },
   { id: 'gapAnalysis', title: 'Gap Analysis' },
   { id: 'survey', title: 'Survey' },
-  { id: 'swotAnalysis', title: 'SWOT Analysis' }
+  { id: 'swotAnalysis', title: 'SWOT Analysis' },
+  { id: 'problem', title: 'Problem' }
 ];
 
 const TableOfContents = () => {
