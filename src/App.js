@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Intro from './components/Intro';
 import GlobalTrend from './components/GlobalTrend';
@@ -11,9 +11,28 @@ import Survey from './components/Survey';
 import Problem from './components/Problem';
 import Plan from './components/Plan';
 import Interview from './components/Interview';
+import Prototype from './components/Prototype';
 import TableOfContents from './components/TableOfContents';
 
 const App = () => {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="app-container">
       <TableOfContents />
@@ -29,7 +48,13 @@ const App = () => {
         <Problem />
         <Plan />
         <Interview />
+        <Prototype />
       </main>
+      {showBackToTop && (
+        <div className="back-to-top" onClick={scrollToTop}>
+          ↑
+        </div>
+      )}
     </div>
   );
 };
