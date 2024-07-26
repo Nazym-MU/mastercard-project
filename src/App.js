@@ -51,8 +51,8 @@ const App = () => {
         <Interview />
         <Problem />
         <Plan />
-        <ValueProposition />
         <Prototype />
+        <ValueProposition />
         <Acknowledgements />
       </main>
       <Footer />

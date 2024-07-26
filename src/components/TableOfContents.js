@@ -6,14 +6,14 @@ const sections = [
   { id: 'useCases', title: 'Use Cases' },
   { id: 'challenges', title: 'Challenges' },
   { id: 'currentState', title: 'Current State' },
+  { id: 'swotAnalysis', title: 'SWOT' },
   { id: 'gapAnalysis', title: 'Gap Analysis' },
-  { id: 'swotAnalysis', title: 'SWOT Analysis' },
   { id: 'survey', title: 'Survey' },
   { id: 'interview', title: 'Interview' },
   { id: 'problem', title: 'Problem' },
   { id: 'plan', title: 'Plan' },
-  { id: 'valueProposition', title: 'Value' },
   { id: 'prototype', title: 'Prototype' },
+  { id: 'valueProposition', title: 'Value' },
   { id: 'acknowledgements', title: 'Credits' }
 ];
 
