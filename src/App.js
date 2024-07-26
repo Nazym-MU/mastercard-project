@@ -16,6 +16,7 @@ import Acknowledgements from './components/Acknowledgements';
 import ValueProposition from './components/ValueProposition';
 import TableOfContents from './components/TableOfContents';
 import Footer from './components/Footer';
+import Logo from './components/Logo';
 
 const App = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -39,6 +40,7 @@ const App = () => {
   return (
     <div className="app-container">
       <TableOfContents />
+      <Logo />
       <main>
         <Intro />
         <GlobalTrend />

@@ -1724,3 +1724,16 @@ input:checked + .slider:before {
   font-size: 0.9rem;
   text-align: center;
 }
+
+
+.fixed-logo {
+  position: fixed;
+  bottom: 1rem; 
+  right: 2.4rem; 
+  z-index: 1000;
+}
+
+.fixed-logo img {
+  width: 5rem; 
+  height: auto;
+}
