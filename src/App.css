@@ -101,6 +101,21 @@ body, html {
 }
 
 
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+
 
 /* GlobalTrend */
 
@@ -192,6 +207,23 @@ body, html {
   height: 30px;
   background-color: rgba(255, 255, 255, 0.7);
   margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+  .statistics-row {
+    flex-direction: column;
+  }
+
+  .vertical-line {
+    width: 80%;
+    height: 1px;
+    margin: 1rem auto;
+  }
+
+  .table-of-contents {
+    display: none; /* Hide on mobile */
+  }
 }
 
 
@@ -331,6 +363,21 @@ body, html {
 }
 
 
+@media (max-width: 768px) {
+  .use-cases-content {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .use-cases-container {
+    height: 50vh;
+    margin-bottom: 2rem;
+  }
+
+  .legend-container {
+    width: 100%;
+  }
+}
 
 /* Challenges */
 
@@ -415,6 +462,21 @@ body, html {
   opacity: 1;
 }
 
+
+@media (max-width: 768px) {
+  .challenges-content {
+    flex-direction: column;
+  }
+
+  .challenges-middle {
+    margin: 0;
+  }
+
+  .challenge-item {
+    width: 100%;
+  }
+  
+}
 
 
 
@@ -511,7 +573,28 @@ body, html {
   line-height: 1.6;
 }
 
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+  }
 
+  .timeline-item::after {
+    left: 50%;
+    margin-left: -10px;
+  }
+
+  .timeline-item.left {
+    left: 0;
+  }
+
+  .timeline-item.right {
+    left: 0;
+  }
+
+  .timeline-item.right::after {
+    left: -10px;
+  }
+}
 
 /* Gap Analysis */
 
@@ -697,6 +780,31 @@ input:checked + .slider:before {
   margin: 1rem;
 }
 
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .banks-container {
+    padding: 1rem;
+  }
+
+  .toggle-container {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .toggle-container.global {
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .toggle-container.global + .banks-wrapper {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
 
 
 /* SwotAnalysis */
@@ -759,6 +867,13 @@ input:checked + .slider:before {
 }
 
 
+@media (max-width: 768px) {
+  .swot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Survey */
 
 
@@ -806,6 +921,16 @@ input:checked + .slider:before {
   margin-top: 1rem;
 }
 
+@media (max-width: 768px) {
+  .charts-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .chart-wrapper {
+    width: 100%;
+  }
+}
 
 
 
@@ -881,6 +1006,16 @@ input:checked + .slider:before {
 }
 
 
+@media (max-width: 768px) {
+  .problem-content {
+    flex-direction: column;
+  }
+
+  .problem-left, .problem-right {
+    padding: 1rem;
+  }
+}
+
 
 
 /* Plan */
@@ -940,6 +1075,23 @@ input:checked + .slider:before {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .plan {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
+  .plan-column {
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: auto;
+  }
+
+  .plan-column.middle,
+  .plan-column.right {
+    border-left: none;
+  }
+}
 
 
 
@@ -1060,6 +1212,16 @@ input:checked + .slider:before {
 }
 
 
+@media (max-width: 1024px) {
+  .interview-content {
+    flex-direction: column;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 /* Prototype */
@@ -1096,6 +1258,12 @@ input:checked + .slider:before {
   color: #ccc;
 }
 
+@media (max-width: 768px) {
+  .coming-soon-container {
+    font-size: 1.5rem;
+  }
+}
+
 
 /* Back to Top button */
 
@@ -1124,6 +1292,15 @@ input:checked + .slider:before {
   background-color: #141414;
   color: #F79E1B;
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 1rem;
+    left: 1rem;
+    width: 30px;
+    height: 30px;
+  }
 }
 
 
@@ -1219,6 +1396,17 @@ input:checked + .slider:before {
 .social-link:hover .link-underline {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .credits {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-links {
+    flex-direction: column;
+  }
 }
 
 
