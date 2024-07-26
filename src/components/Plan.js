@@ -60,7 +60,7 @@ const Plan = () => {
             <p className="hypothesis">
               "Kazakhstan banks lag behind international counterparts in AI adoption due to three main factors: insufficient technological infrastructure, a shortage of skilled AI professionals, and issues with regulatory compliance."
             </p>
-            <p>We tested this hypothesis through additional research and by gaining deep insights from interviews with industry experts.</p>
+            <p>We tested this hypothesis through additional research and by gaining deeper insights from interviews with industry experts.</p>
           </div>
         </div>
         <div className="plan-column middle">

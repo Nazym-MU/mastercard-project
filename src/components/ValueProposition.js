@@ -27,7 +27,7 @@ const ValueProposition = () => {
   return (
     <section className="value-proposition" id="valueProposition">
       <div className="value-content">
-        <h2>Value Proposition</h2>
+        <h2>Value Proposition of Our Solution</h2>
         <div className="features-grid">
           {features.map((feature, index) => (
             <div key={index} className="feature-card">
