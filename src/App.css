@@ -887,20 +887,24 @@ input:checked + .slider:before {
 
 
 
+.plan-container {
+  height: 200vh;
+  position: relative;
+}
+
 .plan {
-  min-height: 200vh;
+  height: 100vh;
   display: flex;
   background-color: #141414;
   color: white;
-  position: relative;
+  position: sticky;
+  top: 0;
   padding-right: 10rem;
 }
 
 .plan-column {
   flex: 1;
   padding: 2rem;
-  position: sticky;
-  top: 0;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -913,17 +917,15 @@ input:checked + .slider:before {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.content {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
 .hypothesis {
   font-style: italic;
   margin: 1rem 0;
   font-size: 1.1em;
-}
-
-.column-content,
-.additional-content,
-.hypothesis-text {
-  opacity: 0;
-  transform: translateY(50px);
 }
 
 .plan h2 {
@@ -937,6 +939,7 @@ input:checked + .slider:before {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
+
 
 
 
