@@ -1,12 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400&display=swap');
-
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-  font-weight: thin;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Medium.ttf') format('truetype');
+      font-weight: medium;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Italic.ttf') format('truetype');
+      font: normal;
+      font-style: italic;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Heavy.ttf') format('truetype');
+      font-weight: heavy;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Light.ttf') format('truetype');
+      font-weight: light;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Black.ttf') format('truetype');
+      font-weight: bolder;
+      font-style: normal;
+}
+
+@font-face {
+  font-family: 'MarkforMC';
+  src: url('./fonts/MarkForMCNarrowW00-Thin.ttf') format('truetype');
+      font-weight: lighter;
+      font-style: normal;
+}
+
+
+.markformc-font {
+  font-family: 'MarkforMC';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.markformc-font-bold {
+  font-family: 'MarkforMC';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.markformc-font-heavy {
+  font-family: 'MarkforMC';
+  font-weight: heavy;
+  font-style: normal;
+}
+
+.markformc-font-italic {
+  font-family: 'MarkforMC';
+  font-weight: normal;
+  font-style: italic;
+}
+
+.markformc-font-light {
+  font-family: 'MarkforMC';
+  font-weight: light;
+  font-style: normal;
+}
+
+.markformc-font-black {
+  font-family: 'MarkforMC';
+  font-weight: bolder;
+  font-style: normal;
+}
+
+.markformc-font-thin {
+  font-family: 'MarkforMC';
+  font-weight: lighter;
+  font-style: normal;
 }
 
 .app-container {

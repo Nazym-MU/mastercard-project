@@ -25,9 +25,9 @@ const Intro = () => {
   return (
     <section id="intro" className="intro-section">
       <div className="left-content">
-        <h2 className="subtitle">Measure your bank's AI adoption</h2>
-        <h1 className="title">AI Solutions for Banks</h1>
-        <button className="get-started-button" onClick={scrollToPrototype}>Get started</button>
+        <h2 className="subtitle markformc-font-regular">Measure your bank's AI adoption</h2>
+        <h1 className="title markformc-font-heavy">AI Solutions for Banks</h1>
+        <button className="get-started-button markformc-font-medium" onClick={scrollToPrototype}>Get started</button>
       </div>
       <div className="right-content">
         <div className="image-container">
