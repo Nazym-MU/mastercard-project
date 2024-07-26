@@ -30,7 +30,7 @@ const Interview = () => {
       <div className="interview-content">
         <div className="questions-side">
           <h2>Interview Questions</h2>
-          <p className="interview-intro">The interview questions varied depending on the role of the interviewee. Some of the questions we asked:</p>
+          <p className="interview-intro">We also conducted interviews to gain a deeper understanding of the current situation. The questions we asked included:</p>
           <ul className="question-list">
             {questions.map((question, index) => (
               <li key={index} className="question-item">
