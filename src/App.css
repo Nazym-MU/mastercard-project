@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;300;400&display=swap');
 
-body {
+body, html {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif, Arial, Helvetica;
   font-weight: thin;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .app-container {
   background-color: #141414;
   min-height: 100vh;
   color: white;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 /* Intro */
@@ -27,6 +25,7 @@ html {
   min-height: 100vh;
   padding: 1rem;
   padding-left: 7rem;
+  overflow-x: hidden;
 }
 
 .left-content {
@@ -315,11 +314,21 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.citation-use-case {
+  position: relative;
+  margin-top: 1rem;
+  left: 65%;
+}
+.citation-use-case p {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
 
 
 
@@ -679,6 +688,15 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+.citation-gap {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin: 1rem;
+}
+
 
 
 /* SwotAnalysis */
@@ -731,6 +749,14 @@ input:checked + .slider:before {
   margin-bottom: 0.5rem;
 }
 
+.citation-swot {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 1rem;
+  text-align: right;
+  margin-left: 42%;
+  margin-right: 3.7%;
+}
 
 
 /* Survey */

@@ -6,31 +6,31 @@ const swotData = [
     points: [
       'Strong domestic market presence',
       'Government support for digitalization',
-      'Young, tech-savvy population',
+      'Data generation and collection capabilities',
     ]
   },
   {
     title: 'Weaknesses',
     points: [
-      'Limited AI expertise and talent pool',
       'Smaller R&D budgets compared to global banks',
-      'Legacy systems in some institutions',
+      'Lack of data quality',
+      'Insufficient digitization of data',
     ]
   },
   {
     title: 'Opportunities',
     points: [
-      'Potential for rapid AI adoption',
-      'Untapped market for AI-driven financial products',
-      'Collaboration with fintech startups',
+      'Potential collaboration with tech giants as NVIDIA, Microsoft, Amazon to locate data centers in Kazakhstan',
+      'Infrastructure potential',
+      'Young and tech-savvy population',
     ]
   },
   {
     title: 'Threats',
     points: [
-      'Competition from global tech giants',
       'Cybersecurity risks',
       'Regulatory challenges in AI implementation',
+      'Dependency on foreign technology',
     ]
   }
 ];
@@ -83,6 +83,11 @@ const SwotAnalysis = () => {
           <SwotCard key={index} title={item.title} points={item.points} index={index} />
         ))}
       </div>
+      <div className="citation-swot">
+        <p>
+          The SWOT analysis was informed by insights from the Ministry of Digital Development, Innovation, and Aerospace Industry's (2024) Concept for the Development of Artificial Intelligence for 2024–2029, along with additional considerations.
+        </p>
+        </div>
     </section>
   );
 };

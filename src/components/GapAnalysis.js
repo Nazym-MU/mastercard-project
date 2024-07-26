@@ -6,11 +6,26 @@ const aiUseCases = [
   { name: 'Cybersecurity & information protection', percentage: 6, foreignPercentage: 35, top: '60%', left: '30%' },
 ];
 
+const bankUseCaseMapping = {
+  'Halyk Bank': ['Client support improvement', 'Risk management', 'Cybersecurity & information protection'],
+  'Kaspi.kz': ['Client support improvement', 'Risk management', 'Cybersecurity & information protection'],
+  'Bank CenterCredit': ['Client support improvement', 'Risk management', 'Cybersecurity & information protection'],
+  'Otbasy bank': ['Client support improvement'],
+  'ForteBank': ['Client support improvement'],
+  'Jusan Bank': ['Client support improvement'],
+  'Eurasian Bank': ['Client support improvement'],
+  'Freedom Bank': ['Client support improvement', 'Risk management', 'Cybersecurity & information protection'],
+  'Altyn Bank': [],
+  'Home Credit Bank': ['Client support improvement'],
+  'Nurbank': [],
+  'Bereke Bank': ['Client support improvement', 'Risk management'],
+};
+
 const banks = [
   'Halyk Bank', 'Kaspi.kz', 'Bank CenterCredit', 'Otbasy bank', 'ForteBank', 
   'Jusan Bank', 'Eurasian Bank', 'Freedom Bank', 
   'Altyn Bank', 'Home Credit Bank', 'Nurbank', 'Bereke Bank'
-].map(name => ({ name, useCases: aiUseCases.map(uc => uc.name).filter(() => Math.random() > 0.5) }));
+].map(name => ({ name, useCases: bankUseCaseMapping[name] || [] }));
 
 const Circle = ({ name, percentage, top, left, onClick }) => {
   const size = Math.max(80, percentage * 4);
@@ -57,7 +72,6 @@ const GapAnalysis = () => {
                 percentage={isKazakhstan ? useCase.percentage : useCase.foreignPercentage}
                 top={useCase.top}
                 left={useCase.left}
-                isHovered={hoveredUseCase === useCase.name}
                 onClick={setHoveredUseCase}
               />
             ))}
@@ -88,10 +102,16 @@ const GapAnalysis = () => {
               </div>
             )}
           </div>
+          <div className="citation-gap">
+        <p>
+        National Payment Corporation. (2024). <i>Artificial intelligence in Kazakhstan financial market</i>. npc.kz.
+        </p>
+      </div>
         </div>
       </div>
     </section>
   );
 };
+
 
 export default GapAnalysis;
