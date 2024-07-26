@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const sections = [
   { id: 'intro', title: 'Intro' },
@@ -7,17 +7,20 @@ const sections = [
   { id: 'challenges', title: 'Challenges' },
   { id: 'currentState', title: 'Current State' },
   { id: 'gapAnalysis', title: 'Gap Analysis' },
-  { id: 'survey', title: 'Survey' },
   { id: 'swotAnalysis', title: 'SWOT Analysis' },
-  { id: 'problem', title: 'Problem & Need' },
+  { id: 'survey', title: 'Survey' },
+  { id: 'interview', title: 'Interview' },
+  { id: 'problem', title: 'Problem' },
   { id: 'plan', title: 'Plan' },
-  { id: 'interview', title: 'Interview & Insights' },
+  { id: 'valueProposition', title: 'Value' },
   { id: 'prototype', title: 'Prototype' },
-  { id: 'acknowledgements', title: 'Acknowledgements' }
+  { id: 'acknowledgements', title: 'Credits' }
 ];
 
 const TableOfContents = () => {
   const [activeSection, setActiveSection] = useState('');
+  const [showScrollHint, setShowScrollHint] = useState(false);
+  const tocRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +35,12 @@ const TableOfContents = () => {
 
       if (activeSection) {
         setActiveSection(activeSection.id);
+        
+        // Scroll the active item into view within the ToC
+        const activeItem = document.querySelector(`.toc-item.active`);
+        if (activeItem && tocRef.current) {
+          activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
       }
     };
 
@@ -39,19 +48,30 @@ const TableOfContents = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (tocRef.current) {
+      setShowScrollHint(tocRef.current.scrollHeight > tocRef.current.clientHeight);
+    }
+  }, []);
+
   return (
-    <nav className="table-of-contents">
-      {sections.map((section, index) => (
-        <React.Fragment key={section.id}>
-          <a
-            href={`#${section.id}`}
-            className={`toc-item ${activeSection === section.id ? 'active' : ''}`}
-          >
-            {section.title}
-          </a>
-          {index < sections.length - 1 && <div className="toc-line"></div>}
-        </React.Fragment>
-      ))}
+    <nav className="table-of-contents" ref={tocRef}>
+      {showScrollHint && <div className="scroll-hint top"></div>}
+      <div className="toc-content">
+        {sections.map((section, index) => (
+          <React.Fragment key={section.id}>
+            <a
+            
+              href={`#${section.id}`}
+              className={`toc-item ${activeSection === section.id ? 'active' : ''}`}
+            >
+              {section.title}
+            </a>
+            {index < sections.length - 1 && <div className="toc-line"></div>}
+          </React.Fragment>
+        ))}
+      </div>
+      {showScrollHint && <div className="scroll-hint bottom"></div>}
     </nav>
   );
 };

@@ -13,6 +13,7 @@ import Plan from './components/Plan';
 import Interview from './components/Interview';
 import Prototype from './components/Prototype';
 import Acknowledgements from './components/Acknowledgements';
+import ValueProposition from './components/ValueProposition';
 import TableOfContents from './components/TableOfContents';
 import Footer from './components/Footer';
 
@@ -44,12 +45,13 @@ const App = () => {
         <UseCases />
         <Challenges />
         <CurrentState />
+        <SwotAnalysis />
         <GapAnalysis />
         <Survey />
-        <SwotAnalysis />
+        <Interview />
         <Problem />
         <Plan />
-        <Interview />
+        <ValueProposition />
         <Prototype />
         <Acknowledgements />
       </main>
