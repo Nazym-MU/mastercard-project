@@ -1414,52 +1414,6 @@ input:checked + .slider:before {
   }
 }
 
-
-
-/* Prototype */
-
-
-
-.prototype {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background-color: #141414;
-  color: white;
-}
-
-.prototype h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #F79E1B;
-}
-
-.coming-soon-container {
-  width: 80%;
-  max-width: 600px;
-  aspect-ratio: 16 / 9;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  color: #ccc;
-}
-
-@media (max-width: 768px) {
-  .prototype h2 {
-    font-size: 2rem;
-  }
-  .coming-soon-container {
-    font-size: 1.5rem;
-  }
-}
-
-
 /* Back to Top button */
 
 .back-to-top {

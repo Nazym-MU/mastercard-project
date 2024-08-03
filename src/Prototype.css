@@ -1,0 +1,101 @@
+/* Prototype */
+
+.prototype {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141414;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .prototype-container {
+    width: 800px;
+    height: 350px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
+  
+  .prototype-container h1, .prototype-container h2, .prototype-container h3 {
+    color: #F79E1B;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .prototype-container select, .prototype-container button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid #F79E1B;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .prototype-container button {
+    background-color: #F79E1B;
+    color: #141414;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .prototype-container button:hover {
+    background-color: #e89017;
+  }
+  
+  .prototype-container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .question {
+    margin-bottom: 2rem;
+  }
+  
+  .option {
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type="radio"], input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .results p {
+    margin-bottom: 1rem;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .navigation button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+  }
+  
+  .results .navigation {
+    justify-content: space-between;
+  }
+
+  
