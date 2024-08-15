@@ -1,346 +1,200 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
+import { PDFDocument, rgb } from 'pdf-lib';
+import html2canvas from 'html2canvas';
 import '../Prototype.css';
-import { FaArrowRight, FaArrowLeft, FaRedo, FaPrint } from 'react-icons/fa';
 
 const Prototype = () => {
-  const [stage, setStage] = useState('intro');
-  const [userRole, setUserRole] = useState('');
-  const [answers, setAnswers] = useState({});
+  const [role, setRole] = useState('');
+  const [questions, setQuestions] = useState([]);
+  const [responses, setResponses] = useState({});
+  const [recommendations, setRecommendations] = useState(null);
+  const [step, setStep] = useState('role');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-  const roles = [
-    'Executive/Director',
-    'Technical Role (Data Scientist, ML Engineer, etc.)',
-    'Managerial Role (Department Head, Project Manager, etc.)',
-    'Non-technical Role (Customer Support, Operations, etc.)'
-  ];
+  const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Service Team', 'Marketing Manager', 'Cybersecurity Manager'];
 
-  const questions = {
-    'Executive/Director': [
-      {
-        id: 'ai_utilization',
-        question: "What is the scope of your organisation's current AI technology utilisation?",
-        options: [
-          'We deploy AI extensively with full ethical oversight.',
-          'We use AI in select departments/projects with some ethical guidelines.',
-          'We are beginning to explore AI options, including ethical considerations.',
-          "We use AI but haven't considered the ethical implications.",
-          "We don't use AI and have no knowledge of its ethical aspects."
-        ]
-      },
-      {
-        id: 'ai_alignment',
-        question: 'To what degree do AI initiatives align with the overall business strategy and goals of the company?',
-        options: ['Fully aligned', 'Mostly aligned', 'Partially aligned', 'Minimally aligned', 'Not aligned']
-      },
-      {
-        id: 'ai_budget',
-        question: 'Do you have a comprehensive budget across both tech and change management for AI implementation?',
-        options: [
-          'Yes, for both tech and change management.',
-          'Yes, but only for tech.',
-          'Yes, but only for change management.',
-          'No, we do not have a comprehensive budget.'
-        ]
-      },
-      {
-        id: 'data_privacy_compliance',
-        question: 'What is the level of awareness of and compliance with relevant data protection and privacy regulations across the organization?',
-        options: [
-          'Fully aware and compliant',
-          'Mostly aware and compliant',
-          'Partially aware and compliant',
-          'Minimally aware and compliant',
-          'Not aware nor compliant'
-        ]
-      },
-      {
-        id: 'risk_management',
-        question: 'Do you have a centralized function for risk management within your organization?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'data_privacy',
-        question: 'How does your organization handle data privacy and security in the context of AI?',
-        options: [
-          'We maintain strict data governance with regular audits and updates.',
-          'We have basic data governance policies but are working to improve them.',
-          'We rely on third-party tools/vendors for data governance.',
-          'We handle data without specific AI-related policies.',
-          "We don't have any data governance mechanisms."
-        ]
-      },
-      {
-        id: 'digitalization',
-        question: 'How would you rate the level of digitalization in business processes in your organization?',
-        options: [
-          'AI-Lead/Transformative level',
-          'Advanced',
-          'Connected',
-          'Emerging',
-          'Initial/Basic level'
-        ]
-      },
-      {
-        id: 'ethics_committee',
-        question: 'Do you have an AI ethics committee, and does every AI initiative undergo an ethical review?',
-        options: ['Yes', 'No']
-      }
-    ],
-    'Technical Role (Data Scientist, ML Engineer, etc.)': [
-      {
-        id: 'infrastructure',
-        question: 'To what degree do you support and maintain the current software and infrastructure that you depend on yourself?',
-        options: [
-          'Fully supported and maintained internally',
-          'Mostly supported and maintained internally',
-          'Partially supported and maintained internally',
-          'Minimally supported and maintained internally',
-          'Not supported and maintained internally'
-        ]
-      },
-      {
-        id: 'tech_stack',
-        question: 'Which of the following statements apply to your organization? (Select all that apply)',
-        options: [
-          'We plan to purchase local infrastructure for AI.',
-          'We have local infrastructure for AI.',
-          'We plan to use cloud infrastructure for AI.',
-          'We plan to train/hire data engineers.',
-          'We have internal data engineers.',
-          'We plan to train/hire data scientists.',
-          'We have internal data scientists.',
-          'We plan to train/hire ML engineers.',
-          'We have internal ML engineers.',
-          'We plan to train/hire MLOps engineers.',
-          'We have internal MLOps engineers.'
-        ],
-        multiple: true
-      },
-      {
-        id: 'integration',
-        question: 'How would you rate the level of integration and the maturity of integration solutions that are used across your system landscape?',
-        options: [
-          'Highly integrated and mature',
-          'Mostly integrated and mature',
-          'Partially integrated and mature',
-          'Minimally integrated and mature',
-          'Not integrated nor mature'
-        ]
-      },
-      {
-        id: 'ai_pitfalls',
-        question: 'How is your organization addressing potential pitfalls, like hallucinations caused by large AI models?',
-        options: [
-          'We have strong preventive measures and routinely check for such issues.',
-          'We occasionally review our models for hallucinations and inaccuracies.',
-          'We rely on third-party tools/vendors without a deep understanding.',
-          "We haven't encountered this issue but are interested in solutions.",
-          "We aren't aware of such pitfalls."
-        ]
-      },
-      {
-        id: 'ai_products',
-        question: 'Do you plan on providing AI products or services as part of your offering?',
-        options: ['Yes', 'No']
-      }
-    ],
-    'Managerial Role (Department Head, Project Manager, etc.)': [
-      {
-        id: 'employee_readiness',
-        question: "How would you rate your employees' willingness to adopt new digital technologies and practices",
-        options: ['Very willing', 'Somewhat willing', 'Neutral', 'Somewhat unwilling', 'Very unwilling']
-      },
-      {
-        id: 'customer_readiness',
-        question: "How would you rate your customers' willingness to adopt new digital technologies and practices?",
-        options: ['Very willing', 'Somewhat willing', 'Neutral', 'Somewhat unwilling', 'Very unwilling']
-      },
-      {
-        id: 'ai_training',
-        question: 'Do you have AI training programs available to all employees, with specialized tracks for different roles?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'ai_budget',
-        question: 'Do you allocate an experimental budget to AI (often a percent of revenue or R&D re-allocation)?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'ai_value_areas',
-        question: 'To what degree have you identified specific business areas or processes where AI can add significant value in your business?',
-        options: ['Fully identified', 'Mostly identified', 'Partially identified', 'Minimally identified', 'Not identified']
-      },
-      {
-        id: 'change_management',
-        question: 'To what degree do you have a change management plan in place to handle the organizational shifts due to AI implementation?',
-        options: ['Fully in place', 'Mostly in place', 'Partially in place', 'Minimally in place', 'Not in place']
-      },
-      {
-        id: 'ai_scalability',
-        question: 'To what degree have you considered the scalability of AI solutions for future expansion?',
-        options: ['Fully considered', 'Mostly considered', 'Partially considered', 'Minimally considered', 'Not considered']
-      }
-    ],
-    'Non-technical Role (Customer Support, Operations, etc.)': [
-      {
-        id: 'ai_awareness',
-        question: 'Are you aware of the AI tools being used in your department?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'ai_confidence',
-        question: 'Do you feel confident in using the AI tools provided for your work?',
-        options: ['Very confident', 'Somewhat confident', 'Neutral', 'Somewhat unconfident', 'Very unconfident']
-      },
-      {
-        id: 'ai_training_interest',
-        question: 'Would you be interested in taking a course to improve your AI skills?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'feedback_mechanisms',
-        question: 'To what degree does your organization have mechanisms for collecting feedback on business processes (internal and external) in general?',
-        options: ['Very high degree', 'High degree', 'Moderate degree', 'Low degree', 'Very low degree']
-      },
-      {
-        id: 'ai_feedback',
-        question: 'Does your organization have feedback mechanisms in place to gather stakeholder input on your AI implementations?',
-        options: ['Yes', 'No']
-      },
-      {
-        id: 'customer_impact',
-        question: 'To what degree do you understand how an AI implementation will affect your customers and do you have plans to manage these impacts?',
-        options: [
-          'Fully understand and have plans',
-          'Mostly understand and have plans',
-          'Partially understand and have plans',
-          'Minimally understand and have plans',
-          'Do not understand nor have plans'
-        ]
-      }
-    ]
-  };
-
-  const handleAnswer = (id, value, isMultiple) => {
-    if (isMultiple) {
-      const currentAnswers = answers[id] || [];
-      if (currentAnswers.includes(value)) {
-        setAnswers({
-          ...answers,
-          [id]: currentAnswers.filter((answer) => answer !== value),
-        });
-      } else {
-        setAnswers({
-          ...answers,
-          [id]: [...currentAnswers, value],
-        });
-      }
-    } else {
-      setAnswers({
-        ...answers,
-        [id]: value,
-      });
+  useEffect(() => {
+    if (role) {
+      axios.get(`http://localhost:3001/api/questions/${role}`)
+        .then(res => setQuestions(res.data))
+        .catch(error => console.error('Error fetching questions:', error));
     }
-  };
+  }, [role]);
 
-  const handleNext = () => {
-    if (currentQuestionIndex < questions[userRole].length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setStage('results');
-    }
-  };
-
-  const handleBack = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-    } else {
-      setStage('intro');
-    }
-  };
-
-  const handleStartOver = () => {
-    setStage('intro');
-    setUserRole('');
-    setAnswers({});
+  const handleRoleSelect = useCallback((selectedRole) => {
+    setRole(selectedRole);
+    setStep('questions');
     setCurrentQuestionIndex(0);
-  };
+    setResponses({});
+  }, []);
 
-  const renderIntro = () => (
-    <div className="intro">
-      <h1>AI Readiness Assessment for Banks</h1>
-      <p>What is your role in the bank?</p>
-      <select onChange={(e) => setUserRole(e.target.value)}>
-        <option value="">Select...</option>
-        {roles.map(role => (
-          <option key={role} value={role}>{role}</option>
-        ))}
-      </select>
-      <button onClick={() => setStage('assessment')} disabled={!userRole}>Start Assessment</button>
-    </div>
-  );
+  const handleAnswer = useCallback((questionId, answer) => {
+    setResponses(prev => ({ ...prev, [questionId]: answer }));
+  }, []);
 
-  const renderAssessment = () => {
-    const currentQuestion = questions[userRole][currentQuestionIndex];
+  const handleSubmit = useCallback(async () => {
+    try {
+      const formattedResponses = Object.entries(responses).map(([questionId, answer]) => ({
+        questionId,
+        answer,
+      }));
+  
+      const response = await axios.post('http://localhost:3001/api/survey', { role, responses: formattedResponses });
+      setRecommendations(response.data);
+      setStep('recommendations');
+    } catch (error) {
+      console.error('Error submitting survey:', error);
+    }
+  }, [role, responses]);
+
+  const handleNext = useCallback(() => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1);
+    } else {
+      handleSubmit();
+    }
+  }, [currentQuestionIndex, questions.length, handleSubmit]);
+
+  const handleBack = useCallback(() => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prev => prev - 1);
+    }
+  }, [currentQuestionIndex]);
+
+  const handleDownloadReport = useCallback(async () => {
+    try {
+      const content = document.getElementById('report-content');
+
+      // Capture the content to be included in the PDF
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL('image/png');
+
+      // Create a new PDF document
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage([600, 800]);
+
+      // Add the image to the PDF
+      const img = await pdfDoc.embedPng(imgData);
+      page.drawImage(img, {
+        x: 0,
+        y: 0,
+        width: page.getWidth(),
+        height: page.getHeight(),
+      });
+
+      // Set font and styling
+      const fontBytes = await fetch('/path-to-your-font/your-font.ttf').then(res => res.arrayBuffer());
+      const font = await pdfDoc.embedFont(fontBytes);
+
+      page.setFont(font);
+      page.setFontSize(12);
+      page.setTextColor(rgb(0, 0, 0));
+
+      // Generate the PDF
+      const pdfBytes = await pdfDoc.save();
+
+      // Create a link to download the PDF
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' }));
+      link.download = 'report.pdf';
+      link.click();
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    }
+  }, []); // No need for recommendations in dependencies
+
+  const renderQuestion = useCallback((question) => {
+    switch (question.type) {
+      case 'single-choice':
+        return (
+          <>
+            {question.options.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswer(question.questionId, option)}
+                className={responses[question.questionId] === option ? 'selected' : ''}
+              >
+                {option}
+              </button>
+            ))}
+          </>
+        );
+      case 'open-ended':
+        return (
+          <textarea
+            value={responses[question.questionId] || ''}
+            onChange={(e) => handleAnswer(question.questionId, e.target.value)}
+            rows={4}
+            cols={50}
+          />
+        );
+      default:
+        return null;
+    }
+  }, [responses, handleAnswer]);
+
+  if (step === 'role') {
     return (
-      <div className="assessment">
-        <h2>Question {currentQuestionIndex + 1} of {questions[userRole].length}</h2>
-        <div className="question">
-          <h3>{currentQuestion.question}</h3>
-          {currentQuestion.options.map((option, index) => (
-            <div key={index} className="option">
-              <input 
-                type={currentQuestion.multiple ? "checkbox" : "radio"}
-                id={`${currentQuestion.id}_${index}`} 
-                name={currentQuestion.id} 
-                value={option}
-                checked={
-                  currentQuestion.multiple
-                    ? (answers[currentQuestion.id] || []).includes(option)
-                    :
-                  answers[currentQuestion.id] === option
-                }
-                onChange={() => handleAnswer(currentQuestion.id, option, currentQuestion.multiple)}
-              />
-              <label htmlFor={`${currentQuestion.id}_${index}`}>{option}</label>
-            </div>
-          ))}
+      <div className='prototype-container'>
+        <h2>Select Your Role</h2>
+        {roles.map(r => (
+          <button key={r} onClick={() => handleRoleSelect(r)}>{r}</button>
+        ))}
+      </div>
+    );
+  }
+
+  if (step === 'questions') {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (!currentQuestion) return <div>Loading...</div>;
+
+    return (
+      <div className='prototype-container'>
+        <h2>AI Adoption Assessment for {role}</h2>
+        <div key={currentQuestion.questionId}>
+          <p>{currentQuestion.text}</p>
+          {renderQuestion(currentQuestion)}
         </div>
-        <div className="navigation">
-          <button onClick={handleBack}><FaArrowLeft /></button>
-          <button onClick={handleNext}
-          disabled={!answers[currentQuestion.id] || (currentQuestion.multiple && answers[currentQuestion.id].length) === 0}><FaArrowRight /></button>
+        <div>
+          <button onClick={handleBack} disabled={currentQuestionIndex === 0}>Back</button>
+          <button 
+            onClick={handleNext} 
+            disabled={!responses[currentQuestion.questionId]}
+          >
+            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
+          </button>
         </div>
       </div>
     );
-  };
+  }
 
-  const generateRecommendations = () => {
-    return "Tailored recommendations based on your responses...";
-  };
+  if (step === 'recommendations') {
+    if (!recommendations) return <div>Loading recommendations...</div>;
 
-  const renderResults = () => (
-    <div className="results">
-      <h2>Your AI Readiness Results</h2>
-      <p>Based on your responses, here are your results:</p>
-      <h3>Recommendations:</h3>
-      <p>{generateRecommendations()}</p>
-      <div className="navigation">
-        <button onClick={handleStartOver}><FaRedo /></button>
-        <button onClick={() => window.print()}><FaPrint /></button>
+    return (
+      <div className='prototype-container'>
+        <h2>AI Maturity Assessment Summary</h2>
+        <div id="report-content">
+          <div>{recommendations.summary}</div>
+          
+          <h3>Detailed Recommendations</h3>
+          {recommendations.detailedRecommendations.map((rec, index) => (
+            <div key={index}>
+              <h4>{rec.category}</h4>
+              <p><strong>Question:</strong> {rec.question}</p>
+              <p><strong>Your Answer:</strong> {rec.answer}</p>
+              <p><strong>Status:</strong> {rec.status}</p>
+              <p><strong>Recommendation:</strong> {rec.recommendation}</p>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleDownloadReport}>Download Report</button>
       </div>
-    </div>
-  );
+    );
+  }
 
-  return (<div className='prototype' id='prototype'>
-      <div className="prototype-container">
-        {stage === 'intro' && renderIntro()}
-        {stage === 'assessment' && renderAssessment()}
-        {stage === 'results' && renderResults()}
-      </div>
-    </div>
-  );
+  return <div>Something went wrong. Please try again.</div>;
 };
 
 export default Prototype;
