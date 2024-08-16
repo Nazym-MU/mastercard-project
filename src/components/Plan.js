@@ -45,7 +45,7 @@ const Plan = () => {
   };
 
   return (
-    <section className="plan-container" id='plan' ref={sectionRef}>
+    <section className="plan-container" id='solution' ref={sectionRef}>
       <div className="plan">
         <div className="plan-column left">
           <div className="content" ref={addToRefs}>

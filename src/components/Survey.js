@@ -60,7 +60,7 @@ const Survey = () => {
   );
 
   return (
-    <section className="survey" id="survey">
+    <section className="survey" id="data">
       <h2>What about AI use by bank employees?</h2>
       <p className="survey-subtitle">We conducted a survey among 101 Halyk Bank employees.</p>
       <div className="charts-container">

@@ -9,6 +9,7 @@
   color: white;
   position: relative;
   overflow: hidden;
+  padding-right: 6rem;
 }
 
 .prototype-container {
@@ -151,6 +152,11 @@ input[type="radio"], input[type="checkbox"] {
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.options-column button {
+  background-color: #4d4d4d;
+  color: white;
 }
 
 .option-button {

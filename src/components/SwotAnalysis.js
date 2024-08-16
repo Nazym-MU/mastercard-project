@@ -76,7 +76,7 @@ const SwotCard = ({ title, points, index }) => {
 
 const SwotAnalysis = () => {
   return (
-    <section className="swot-analysis" id="swotAnalysis">
+    <section className="swot-analysis">
       <h2>SWOT Analysis: Kazakhstan Banks vs Foreign Counterparts</h2>
       <div className="swot-grid">
         {swotData.map((item, index) => (

@@ -33,7 +33,7 @@ const UseCases = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
 
   return (
-    <section className="use-cases" id="useCases">
+    <section className="use-cases">
       <h2>Where do banks use AI?</h2>
       <div className="use-cases-content">
         <div className="use-cases-container">

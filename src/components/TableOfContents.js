@@ -1,20 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const sections = [
-  { id: 'intro', title: 'Intro' },
-  { id: 'globalTrend', title: 'Global Trends' },
-  { id: 'useCases', title: 'Use Cases' },
-  { id: 'challenges', title: 'Challenges' },
-  { id: 'currentState', title: 'Current State' },
-  { id: 'swotAnalysis', title: 'SWOT' },
-  { id: 'gapAnalysis', title: 'Gap Analysis' },
-  { id: 'survey', title: 'Survey' },
-  { id: 'interview', title: 'Interview' },
-  { id: 'problem', title: 'Problem' },
-  { id: 'plan', title: 'Plan' },
-  { id: 'prototype', title: 'Prototype' },
-  { id: 'valueProposition', title: 'Value' },
-  { id: 'acknowledgements', title: 'Credits' }
+  { id: 'market', title: 'Market Research' },
+  { id: 'data', title: 'Data Collection' },
+  { id: 'solution', title: 'Solution Plan' },
+  { id: 'prototype', title: 'Project Prototype' },
 ];
 
 const TableOfContents = () => {
@@ -36,7 +26,6 @@ const TableOfContents = () => {
       if (activeSection) {
         setActiveSection(activeSection.id);
         
-        // Scroll the active item into view within the ToC
         const activeItem = document.querySelector(`.toc-item.active`);
         if (activeItem && tocRef.current) {
           activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -54,6 +43,15 @@ const TableOfContents = () => {
     }
   }, []);
 
+  const handleClick = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setActiveSection(sectionId); 
+    }
+  };
+
   return (
     <nav className="table-of-contents" ref={tocRef}>
       {showScrollHint && <div className="scroll-hint top"></div>}
@@ -61,9 +59,9 @@ const TableOfContents = () => {
         {sections.map((section, index) => (
           <React.Fragment key={section.id}>
             <a
-            
               href={`#${section.id}`}
               className={`toc-item ${activeSection === section.id ? 'active' : ''}`}
+              onClick={(e) => handleClick(e, section.id)}
             >
               {section.title}
             </a>

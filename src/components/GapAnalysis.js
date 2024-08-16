@@ -60,7 +60,7 @@ const GapAnalysis = () => {
   const [isKazakhstan, setIsKazakhstan] = useState(true);
 
   return (
-    <section className="gap-analysis" id="gapAnalysis">
+    <section className="gap-analysis">
       <div className="content-wrapper">
         <div className="left-side">
           <h2>Where do they use AI?</h2>

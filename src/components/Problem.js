@@ -41,7 +41,7 @@ const Problem = () => {
   const currentExcerpt = excerpts[currentExcerptIndex];
 
   return (
-    <section className="problem" id="problem">
+    <section className="problem">
       <div className="problem-content">
         <div className="problem-left">
           <h2>Summing up, there is a strong need for a comprehensive AI adoption strategy</h2>

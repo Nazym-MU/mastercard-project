@@ -23,7 +23,7 @@ const statistics = [
 
 const CurrentState = () => {
   return (
-    <section className="current-state" id="currentState">
+    <section className="current-state">
       <h2>According to the survey conducted by National Bank of Kazakhstan in February 2024, of 94+ financial market participants...</h2>
       <div className="timeline">
         {statistics.map((stat) => (

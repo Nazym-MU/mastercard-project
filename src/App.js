@@ -5,7 +5,6 @@ import GlobalTrend from './components/GlobalTrend';
 import UseCases from './components/UseCases';
 import Challenges from './components/Challenges';
 import CurrentState from './components/CurrentState';
-import GapAnalysis from './components/GapAnalysis';
 import SwotAnalysis from './components/SwotAnalysis';
 import Survey from './components/Survey';
 import Problem from './components/Problem';
@@ -48,7 +47,6 @@ const App = () => {
         <Challenges />
         <CurrentState />
         <SwotAnalysis />
-        <GapAnalysis />
         <Survey />
         <Interview />
         <Problem />

@@ -31,7 +31,7 @@ const Challenges = () => {
   const [hoveredChallenge, setHoveredChallenge] = useState(null);
 
   return (
-    <section className="challenges" id="challenges">
+    <section className="challenges">
       <h2>But there are some challenges...</h2>
       <div className="challenges-content">
         <div className="challenges-left">

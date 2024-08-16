@@ -9,7 +9,7 @@ const statistics = [
 ];
 
 const GlobalTrend = () => (
-  <section className="global-trend" id="globalTrend">
+  <section className="global-trend" id="market">
     <div className="statistics-row">
       {statistics.map((stat, index) => (
         <React.Fragment key={index}>

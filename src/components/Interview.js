@@ -26,7 +26,7 @@ const insights = [
 
 const Interview = () => {
   return (
-    <section className="interview" id="interview">
+    <section className="interview">
       <div className="interview-content">
         <div className="questions-side">
           <h2>Interview Questions</h2>

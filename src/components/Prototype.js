@@ -16,9 +16,11 @@ const Prototype = () => {
 
   const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Service Team', 'Marketing Manager', 'Cybersecurity Manager'];
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(() => {
     if (role) {
-      axios.get(`http://localhost:3001/api/questions/${encodeURIComponent(role)}`)
+      axios.get(`${apiUrl}/api/questions/${encodeURIComponent(role)}`)
         .then(res => setQuestions(res.data))
         .catch(error => console.error('Error fetching questions:', error));
     }
@@ -44,7 +46,7 @@ const Prototype = () => {
         answer,
       }));
   
-      const response = await axios.post('http://localhost:3001/api/survey', { role, responses: formattedResponses });
+      const response = await axios.post(`${apiUrl}/api/survey`, { role, responses: formattedResponses });
       console.log("Received recommendations:", response.data);
       setRecommendations(response.data);
     } catch (error) {
@@ -84,16 +86,16 @@ const Prototype = () => {
       case 'single-choice':
         return (
           <div className="options-column">
-          {question.options.map(option => (
-            <button
-              key={option}
-              onClick={() => handleAnswer(question.questionId, option)}
-              className={`option-button ${responses[question.questionId] === option ? 'selected' : ''}`}
-            >
-              {option}
-            </button>
-          ))}
-        </div>
+            {question.options.map(option => (
+              <button
+                key={option}
+                onClick={() => handleAnswer(question.questionId, option)}
+                className={`option-button ${responses[question.questionId] === option ? 'selected' : ''}`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
         );
       case 'open-ended':
         return (
@@ -111,7 +113,7 @@ const Prototype = () => {
 
   if (step === 'role') {
     return (
-      <div className='prototype'>
+      <div className='prototype' id='prototype'>
         <div className='prototype-container'>
           <h2>Select Your Role</h2>
           <div className="options-column">
@@ -129,7 +131,7 @@ const Prototype = () => {
     if (!currentQuestion) return <div>Loading...</div>;
 
     return (
-      <div className='prototype'>
+      <div className='prototype' id='prototype'>
         <div className='prototype-container'>
           <h2>AI Adoption Assessment for {role}</h2>
           <div className="question">
@@ -155,7 +157,7 @@ const Prototype = () => {
   if (step === 'recommendations') {
     if (isLoading) {
       return (
-        <div className='prototype'>
+        <div className='prototype' id='prototype'>
           <div className='prototype-container'>
             <h2>Generating Report...</h2>
             <div className="loading-bar">
@@ -170,7 +172,7 @@ const Prototype = () => {
     if (!recommendations) return <div>Loading recommendations...</div>;
 
     return (
-      <div className='prototype'>
+      <div className='prototype' id='prototype'>
         <div className='prototype-container'>
           <h2>AI Adoption Assessment Results</h2>
           <PDFReport recommendations={recommendations} />

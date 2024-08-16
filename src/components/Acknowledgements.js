@@ -13,7 +13,7 @@ const Acknowledgements = () => {
   const [hoveredLink, setHoveredLink] = useState(null);
 
   return (
-    <section className="acknowledgements" id="acknowledgements">
+    <section className="acknowledgements">
       <div className="acknowledgements-content">
         <h2>Acknowledgements</h2>
         <div className="thanks-message">
