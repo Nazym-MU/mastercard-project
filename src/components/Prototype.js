@@ -16,10 +16,10 @@ const Prototype = () => {
 
   const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Service Team', 'Marketing Manager', 'Cybersecurity Manager'];
 
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (role) {
+      const apiUrl = process.env.REACT_APP_API_URL;
       axios.get(`${apiUrl}/api/questions/${encodeURIComponent(role)}`)
         .then(res => setQuestions(res.data))
         .catch(error => console.error('Error fetching questions:', error));
@@ -46,6 +46,7 @@ const Prototype = () => {
         answer,
       }));
   
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
       const response = await axios.post(`${apiUrl}/api/survey`, { role, responses: formattedResponses });
       console.log("Received recommendations:", response.data);
       setRecommendations(response.data);
