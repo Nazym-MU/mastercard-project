@@ -1,101 +1,186 @@
-/* Prototype */
+/* Prototype.css */
 
 .prototype {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #141414;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .prototype-container {
-    width: 800px;
-    height: 350px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-items: center;
-  }
-  
-  .prototype-container h1, .prototype-container h2, .prototype-container h3 {
-    color: #F79E1B;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
-  .prototype-container select, .prototype-container button {
-    display: block;
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 2px solid #F79E1B;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .prototype-container button {
-    background-color: #F79E1B;
-    color: #141414;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .prototype-container button:hover {
-    background-color: #e89017;
-  }
-  
-  .prototype-container button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  .question {
-    margin-bottom: 2rem;
-  }
-  
-  .option {
-    margin-bottom: 0.5rem;
-  }
-  
-  input[type="radio"], input[type="checkbox"] {
-    margin-right: 0.5rem;
-  }
-  
-  .results p {
-    margin-bottom: 1rem;
-  }
-  
-  .navigation {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .navigation button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-  }
-  
-  .results .navigation {
-    justify-content: space-between;
-  }
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #141414;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
 
-  
+.prototype-container {
+  width: 800px;
+  min-height: 350px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.prototype-container h1, .prototype-container h2, .prototype-container h3 {
+  color: #F79E1B;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.prototype-container select, .prototype-container input[type="text"], .prototype-container textarea {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid #F79E1B;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.prototype-container button:not(.navigation button) {
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 300px;
+  min-width: 120px;
+  margin-bottom: 0.7rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.prototype-container button:hover:not(.navigation button) {
+  background-color: #F79E1B;
+  color: #141414;
+}
+
+.prototype-container button:active:not(.navigation button) {
+  color:#141414;
+  background-color: #F79E1B;
+}
+
+.prototype-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.question {
+  margin-bottom: 1.2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.option {
+  margin-bottom: 0.5rem;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.results p {
+  margin-bottom: 1rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.navigation button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: #F79E1B;
+  color: #141414;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation button:hover {
+  background-color: #e89017;
+}
+
+.navigation button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.download-report-button {
+  background-color: #F79E1B;
+  color: #141414;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.download-report-button:hover {
+  background-color: #e69500;
+}
+
+.download-report-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.options-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.option-button {
+  background-color: #4d4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.option-button.selected {
+  background-color: #F79E1B;
+  color: #141414;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.loading-progress {
+  height: 100%;
+  background-color: #F79E1B;
+  transition: width 0.5s ease;
+}

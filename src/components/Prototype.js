@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import { PDFDocument, rgb } from 'pdf-lib';
-import html2canvas from 'html2canvas';
+import PDFReport from './PDFReport';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../Prototype.css';
 
 const Prototype = () => {
@@ -11,12 +11,14 @@ const Prototype = () => {
   const [recommendations, setRecommendations] = useState(null);
   const [step, setStep] = useState('role');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Service Team', 'Marketing Manager', 'Cybersecurity Manager'];
 
   useEffect(() => {
     if (role) {
-      axios.get(`http://localhost:3001/api/questions/${role}`)
+      axios.get(`http://localhost:3001/api/questions/${encodeURIComponent(role)}`)
         .then(res => setQuestions(res.data))
         .catch(error => console.error('Error fetching questions:', error));
     }
@@ -34,6 +36,8 @@ const Prototype = () => {
   }, []);
 
   const handleSubmit = useCallback(async () => {
+    setIsLoading(true);
+    setStep('recommendations');
     try {
       const formattedResponses = Object.entries(responses).map(([questionId, answer]) => ({
         questionId,
@@ -41,12 +45,25 @@ const Prototype = () => {
       }));
   
       const response = await axios.post('http://localhost:3001/api/survey', { role, responses: formattedResponses });
+      console.log("Received recommendations:", response.data);
       setRecommendations(response.data);
-      setStep('recommendations');
     } catch (error) {
       console.error('Error submitting survey:', error);
+      setStep('questions'); 
+    } finally {
+      setIsLoading(false);
+      setLoadingProgress(0);
     }
   }, [role, responses]);
+
+  useEffect(() => {
+    if (isLoading) {
+      const interval = setInterval(() => {
+        setLoadingProgress(prev => (prev < 100 ? prev + 10 : 100));
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [isLoading]);
 
   const handleNext = useCallback(() => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -62,63 +79,21 @@ const Prototype = () => {
     }
   }, [currentQuestionIndex]);
 
-  const handleDownloadReport = useCallback(async () => {
-    try {
-      const content = document.getElementById('report-content');
-
-      // Capture the content to be included in the PDF
-      const canvas = await html2canvas(content);
-      const imgData = canvas.toDataURL('image/png');
-
-      // Create a new PDF document
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage([600, 800]);
-
-      // Add the image to the PDF
-      const img = await pdfDoc.embedPng(imgData);
-      page.drawImage(img, {
-        x: 0,
-        y: 0,
-        width: page.getWidth(),
-        height: page.getHeight(),
-      });
-
-      // Set font and styling
-      const fontBytes = await fetch('/path-to-your-font/your-font.ttf').then(res => res.arrayBuffer());
-      const font = await pdfDoc.embedFont(fontBytes);
-
-      page.setFont(font);
-      page.setFontSize(12);
-      page.setTextColor(rgb(0, 0, 0));
-
-      // Generate the PDF
-      const pdfBytes = await pdfDoc.save();
-
-      // Create a link to download the PDF
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' }));
-      link.download = 'report.pdf';
-      link.click();
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-    }
-  }, []); // No need for recommendations in dependencies
-
   const renderQuestion = useCallback((question) => {
     switch (question.type) {
       case 'single-choice':
         return (
-          <>
-            {question.options.map(option => (
-              <button
-                key={option}
-                onClick={() => handleAnswer(question.questionId, option)}
-                className={responses[question.questionId] === option ? 'selected' : ''}
-              >
-                {option}
-              </button>
-            ))}
-          </>
+          <div className="options-column">
+          {question.options.map(option => (
+            <button
+              key={option}
+              onClick={() => handleAnswer(question.questionId, option)}
+              className={`option-button ${responses[question.questionId] === option ? 'selected' : ''}`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
         );
       case 'open-ended':
         return (
@@ -126,7 +101,7 @@ const Prototype = () => {
             value={responses[question.questionId] || ''}
             onChange={(e) => handleAnswer(question.questionId, e.target.value)}
             rows={4}
-            cols={50}
+            style={{ width: '100%' }}
           />
         );
       default:
@@ -136,11 +111,15 @@ const Prototype = () => {
 
   if (step === 'role') {
     return (
-      <div className='prototype-container'>
-        <h2>Select Your Role</h2>
-        {roles.map(r => (
-          <button key={r} onClick={() => handleRoleSelect(r)}>{r}</button>
-        ))}
+      <div className='prototype'>
+        <div className='prototype-container'>
+          <h2>Select Your Role</h2>
+          <div className="options-column">
+            {roles.map(r => (
+              <button key={r} onClick={() => handleRoleSelect(r)}>{r}</button>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
@@ -150,46 +129,52 @@ const Prototype = () => {
     if (!currentQuestion) return <div>Loading...</div>;
 
     return (
-      <div className='prototype-container'>
-        <h2>AI Adoption Assessment for {role}</h2>
-        <div key={currentQuestion.questionId}>
-          <p>{currentQuestion.text}</p>
-          {renderQuestion(currentQuestion)}
-        </div>
-        <div>
-          <button onClick={handleBack} disabled={currentQuestionIndex === 0}>Back</button>
-          <button 
-            onClick={handleNext} 
-            disabled={!responses[currentQuestion.questionId]}
-          >
-            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next'}
-          </button>
+      <div className='prototype'>
+        <div className='prototype-container'>
+          <h2>AI Adoption Assessment for {role}</h2>
+          <div className="question">
+            <p>{currentQuestion.text}</p>
+            {renderQuestion(currentQuestion)}
+          </div>
+          <div className="navigation">
+            <button onClick={handleBack} disabled={currentQuestionIndex === 0}>
+              <FaChevronLeft />
+            </button>
+            <button 
+              onClick={handleNext} 
+              disabled={!responses[currentQuestion.questionId]}
+            >
+              <FaChevronRight />
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 
   if (step === 'recommendations') {
+    if (isLoading) {
+      return (
+        <div className='prototype'>
+          <div className='prototype-container'>
+            <h2>Generating Report...</h2>
+            <div className="loading-bar">
+              <div className="loading-progress" style={{width: `${loadingProgress}%`}}></div>
+            </div>
+            <p>{loadingProgress}% Complete</p>
+          </div>
+        </div>
+      );
+    }
+
     if (!recommendations) return <div>Loading recommendations...</div>;
 
     return (
-      <div className='prototype-container'>
-        <h2>AI Maturity Assessment Summary</h2>
-        <div id="report-content">
-          <div>{recommendations.summary}</div>
-          
-          <h3>Detailed Recommendations</h3>
-          {recommendations.detailedRecommendations.map((rec, index) => (
-            <div key={index}>
-              <h4>{rec.category}</h4>
-              <p><strong>Question:</strong> {rec.question}</p>
-              <p><strong>Your Answer:</strong> {rec.answer}</p>
-              <p><strong>Status:</strong> {rec.status}</p>
-              <p><strong>Recommendation:</strong> {rec.recommendation}</p>
-            </div>
-          ))}
+      <div className='prototype'>
+        <div className='prototype-container'>
+          <h2>AI Adoption Assessment Results</h2>
+          <PDFReport recommendations={recommendations} />
         </div>
-        <button onClick={handleDownloadReport}>Download Report</button>
       </div>
     );
   }
