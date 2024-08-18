@@ -91,7 +91,14 @@ const styles = StyleSheet.create({
 });
 
 const PDFReport = ({ recommendations }) => {
-  const report = JSON.parse(recommendations.summary);
+  console.log("Recommendations in PDFReport:", recommendations);
+
+  if (!recommendations || !recommendations.summary) {
+    console.error("Invalid recommendations data");
+    return <div>Error: Invalid data received</div>;
+  }
+
+  const report = recommendations.summary;
 
   const PDFDocument = (
     <Document>

@@ -1,15 +1,4 @@
 import React from 'react';
-
-const questions = [
-  "How does the bank you work for use AI?",
-  "Is your bank strategically planning AI adoption?",
-  "What obstacles to the implementation of AI do you see?",
-  "How do you see the role of AI evolving in the Kazakhstani banking sector over the next five years?",
-  "How is compliance with regulations maintained?",
-  "How does your bank measure the ROI of AI projects, and what metrics are most important in this evaluation?",
-  "What would you want AI to automate in your day-to-day job?"
-];
-
 const insights = [
   {
     title: "Regulatory Compliance Challenges",
@@ -31,14 +20,7 @@ const Interview = () => {
         <div className="questions-side">
           <h2>Interview Questions</h2>
           <p className="interview-intro">We also conducted interviews to gain a deeper understanding of the current situation. The questions we asked included:</p>
-          <ul className="question-list">
-            {questions.map((question, index) => (
-              <li key={index} className="question-item">
-                <span className="question-number">{index + 1}</span>
-                <span className="question-text">{question}</span>
-              </li>
-            ))}
-          </ul>
+          
         </div>
         <div className="insights-side">
           <h2>Interview Insights</h2>

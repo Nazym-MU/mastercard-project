@@ -14,7 +14,7 @@ const Prototype = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
 
-  const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Service Team', 'Marketing Manager', 'Cybersecurity Manager'];
+  const roles = ['C-Suite', 'IT and Data Science', 'Risk and Compliance', 'Human Resources Manager', 'Customer Center Lead', 'Marketing Manager', 'Cybersecurity Manager'];
 
 
   useEffect(() => {
