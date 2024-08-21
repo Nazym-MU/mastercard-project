@@ -19,7 +19,7 @@ const Intro = () => {
     <section id="intro" className="intro-section">
       <div className="left-content">
         <h1 className="title markformc-font-heavy">AI Solutions for Banks</h1>
-        <h2 className="subtitle markformc-font-light">Measure your bank's AI adoption and get tailored recommendations for improvement</h2>
+        <h2 className="subtitle markformc-font-light">Assess your bank's AI adoption and receive tailored recommendations for advancement</h2>
       </div>
       <div className="right-content">
         <div className="image-container">

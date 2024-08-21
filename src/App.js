@@ -15,6 +15,7 @@ import Acknowledgements from './components/Acknowledgements';
 import ValueProposition from './components/ValueProposition';
 import TableOfContents from './components/TableOfContents';
 import Footer from './components/Footer';
+import GapAnalysis from './components/GapAnalysis';
 import Logo from './components/Logo';
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
         <UseCases />
         <Challenges />
         <CurrentState />
+        <GapAnalysis />
         <Survey />
         <Interview />
         <SwotAnalysis />

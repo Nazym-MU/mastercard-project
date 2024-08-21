@@ -770,7 +770,6 @@ body, html {
 /* Gap Analysis */
 
 
-
 .gap-analysis {
   display: flex;
   justify-content: center;
@@ -792,9 +791,28 @@ body, html {
   flex-direction: column;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 139%;
+}
+
 .left-side h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #f79e1b;
+  margin: 0;
+}
+
+.left-side h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 3rem;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
 }
 
 .circles-container-bank {
@@ -824,76 +842,18 @@ body, html {
   margin-top: 5px;
 }
 
-.banks-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  padding: 2rem;
-  border: solid 4px #2a2a2a;
-  border-radius: 20px;
-}
-
-.bank-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.75rem;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-}
-
-.bank-logo.active {
-  opacity: 1;
-}
-
-.bank-logo img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.bank-logo span {
-  font-size: 0.8em;
-  text-align: center;
-}
-
 .right-side {
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-top: 3rem;
 }
 
-.toggle-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  transition: all 0.5s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.toggle-container.global {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.toggle-label {
-  transition: all 0.5s ease;
-}
-
-.banks-wrapper {
-  margin-top: 50px;
-  transition: opacity 0.5s ease;
-}
-
-.toggle-container.global + .banks-wrapper {
-  opacity: 0;
-  pointer-events: none;
+.right-side h3 {
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 3rem;
 }
 
 .switch {
@@ -942,45 +902,12 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-.citation-gap {
-  position: relative;
-  bottom: 0;
-  right: 0;
-  font-size: 0.75rem;
-  opacity: 0.8;
-  margin: 1rem;
+.toggle-label {
+  transition: all 0.5s ease;
+  margin-top: 0;
+  margin-right: 1rem
 }
 
-@media (max-width: 768px) {
-
-  .gap-analysis {
-    padding-right: 0;
-  }
-
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .banks-container {
-    padding: 1rem;
-  }
-
-  .toggle-container {
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-  .toggle-container.global {
-    top: 0;
-    left: 0;
-    transform: none;
-  }
-
-  .toggle-container.global + .banks-wrapper {
-    opacity: 1;
-    pointer-events: all;
-  }
-}
 
 
 /* SwotAnalysis */
