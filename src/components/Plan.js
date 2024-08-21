@@ -7,6 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 const Plan = () => {
   const sectionRef = useRef(null);
   const contentRefs = useRef([]);
+  const scrollToPrototype = (e) => {
+    e.preventDefault();
+    const prototypeSection = document.getElementById('prototype');
+    if (prototypeSection) {
+      prototypeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -81,6 +88,7 @@ const Plan = () => {
             <p>This tool aims to provide a comprehensive assessment of a bank's readiness for AI and offer tailored recommendations to improve AI adoption, focusing on areas mentioned in the hypothesis.</p>
             <p>We identified a comprehensive AI readiness questionnaire developed by an AI leader Allie K. Miller, which serves as the foundation for our self-assessment tool.</p>
             <p>Through extensive interviews with AI experts, bank executives, and data scientists, coupled with in-depth research, we've developed a set of tailored recommendations for banks at different stages of AI readiness.</p>
+            <button className="get-started-button markformc-font-medium" onClick={scrollToPrototype}>Test the prototype</button>
           </div>
         </div>
       </div>

@@ -4,13 +4,6 @@ import '../App.css'
 const Intro = () => {
   const [scrollY, setScrollY] = useState(0);
 
-  const scrollToPrototype = (e) => {
-    e.preventDefault();
-    const prototypeSection = document.getElementById('prototype');
-    if (prototypeSection) {
-      prototypeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -25,9 +18,8 @@ const Intro = () => {
   return (
     <section id="intro" className="intro-section">
       <div className="left-content">
-        <h2 className="subtitle markformc-font-regular">Measure your bank's AI adoption</h2>
         <h1 className="title markformc-font-heavy">AI Solutions for Banks</h1>
-        <button className="get-started-button markformc-font-medium" onClick={scrollToPrototype}>Get started</button>
+        <h2 className="subtitle markformc-font-light">Measure your bank's AI adoption and get tailored recommendations for improvement</h2>
       </div>
       <div className="right-content">
         <div className="image-container">

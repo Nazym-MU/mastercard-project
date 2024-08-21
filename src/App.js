@@ -46,9 +46,9 @@ const App = () => {
         <UseCases />
         <Challenges />
         <CurrentState />
-        <SwotAnalysis />
         <Survey />
         <Interview />
+        <SwotAnalysis />
         <Problem />
         <Plan />
         <Prototype />
