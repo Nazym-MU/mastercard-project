@@ -1222,13 +1222,11 @@ input:checked + .slider:before {
 /* Interview */
 
 
-
-
 .interview {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem;
   background-color: #141414;
   color: white;
@@ -1239,100 +1237,88 @@ input:checked + .slider:before {
   display: flex;
   max-width: 1400px;
   width: 100%;
-  gap: 6rem;
+  gap: 4rem;
 }
 
-.questions-side, .insights-side {
-  flex: 1;
+.questions-side {
+  flex: 0.6;
+}
+
+.insights-side {
+  flex: 1.4;
 }
 
 .interview h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #F79E1B;
 }
 
 .interview-intro {
   font-style: italic;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: #ccc;
 }
 
-.question-list {
-  list-style-type: none;
-  padding: 0;
+.interview-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
 }
 
-.question-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
+.interview-card {
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  padding: 0.7rem;
+  padding-left: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.question-item:hover {
-  transform: translateX(10px);
+.interview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.question-number {
-  background-color: #F79E1B;
-  color: #141414;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin-right: 1rem;
-  flex-shrink: 0;
+.interview-card h3 {
+  color: #F79E1B;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
-.question-text {
-  line-height: 1.8;
+.interview-card p {
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #ddd;
 }
 
 .insights-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .insight-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  padding: 1.3rem;
-  transition: transform 0.3s ease;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .insight-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .insight-card h3 {
   color: #F79E1B;
   margin-bottom: 1rem;
-  
+  font-size: 1.25rem;
 }
 
 .insight-card p {
   line-height: 1.6;
-  font-size: 0.9rem;
-}
-
-.insight-card.empty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 150px;
-}
-
-.placeholder-text {
-  color: #666;
-  font-style: italic;
+  font-size: 1rem;
+  color: #ddd;
 }
 
 
