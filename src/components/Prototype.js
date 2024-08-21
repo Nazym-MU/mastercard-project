@@ -114,22 +114,27 @@ const Prototype = () => {
 
   if (step === 'role') {
     return (
-      <div className='prototype' id='prototype'>
-        <div className='prototype-container'>
-          <h2>Select Your Role</h2>
-          <div className="options-column">
-            {roles.map(r => (
-              <button key={r} onClick={() => handleRoleSelect(r)}>{r}</button>
-            ))}
+        <div className='prototype' id='prototype'>
+          <div className='prototype-wrapper'>
+            <div className="prototype-content">
+              <h1>AI Adoption Assessment</h1>
+            </div>
+            <div className='prototype-container'>
+              <h2>Select Your Role</h2>
+              <div className="options-column">
+                {roles.map(r => (
+                  <button key={r} onClick={() => handleRoleSelect(r)}>{r}</button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
     );
   }
 
   if (step === 'questions') {
     const currentQuestion = questions[currentQuestionIndex];
-    if (!currentQuestion) return <div>Loading...</div>;
+    if (!currentQuestion) return <div className="loading-container">Loading...</div>;
 
     return (
       <div className='prototype' id='prototype'>
