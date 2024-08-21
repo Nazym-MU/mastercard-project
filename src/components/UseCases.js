@@ -6,26 +6,39 @@ const useCases = [
   { id: 3, name: 'Collections Support', category: 'risk', color: '#3498db' },
   { id: 4, name: 'Identity Management', category: 'risk', color: '#3498db' },
   { id: 5, name: 'AML Compliance', category: 'risk', color: '#3498db' },
-  { id: 6, name: 'AI Call Centers', category: 'support', color: '#f1c40f' },
-  { id: 7, name: 'Chatbots', category: 'support', color: '#f1c40f' },
-  { id: 8, name: 'Robo-advisors', category: 'support', color: '#f1c40f' },
-  { id: 9, name: 'Sentiment Analysis', category: 'support', color: '#f1c40f' },
-  { id: 10, name: 'Chargeback Processing', category: 'support', color: '#f1c40f' },
-  { id: 11, name: 'Personalized Marketing', category: 'marketing', color: '#9b59b6' },
-  { id: 12, name: 'Targeted Recommendations', category: 'marketing', color: '#9b59b6' },
-  { id: 13, name: 'Customer Value Management', category: 'marketing', color: '#9b59b6' },
-  { id: 14, name: 'Data Extraction', category: 'automation', color: '#34495e' },
-  { id: 15, name: 'Documentation Processing', category: 'automation', color: '#34495e' },
-  { id: 16, name: 'Low-complexity Customer Requests', category: 'automation', color: '#34495e' },
-  { id: 17, name: 'Email Processing', category: 'automation', color: '#34495e' },
-  
+  { id: 6, name: 'Real-time transaction monitoring', category: 'risk', color: '#3498db' },
+  { id: 7, name: 'Automating aspects of cybersecurity', category: 'risk', color: '#3498db' },
+  { id: 8, name: 'Verifying vendor payment details to prevent fraud', category: 'risk', color: '#3498db' },
+  { id: 8, name: 'Chatbots', category: 'support', color: '#f1c40f' },
+  { id: 9, name: 'Robo-advisors', category: 'support', color: '#f1c40f' },
+  { id: 10, name: 'Sentiment Analysis', category: 'support', color: '#f1c40f' },
+  { id: 11, name: 'Chargeback Processing', category: 'support', color: '#f1c40f' },
+  { id: 12, name: 'AI Call Centers', category: 'support', color: '#f1c40f' },
+  { id: 13, name: 'Targeted Recommendations', category: 'marketing', color: '#9b59b6' },
+  { id: 14, name: 'Customer Value Management', category: 'marketing', color: '#9b59b6' },
+  { id: 15, name: 'Personalized Marketing', category: 'marketing', color: '#9b59b6' },
+  { id: 16, name: 'Predicting future outcomes and trends with precision', category: 'data', color: '#e74c3c' },
+  { id: 17, name: 'Identifying new business opportunities', category: 'data', color: '#e74c3c' },
+  { id: 18, name: 'Customer Segmentation', category: 'data', color: '#e74c3c' },
+  { id: 19, name: 'Generating data-informed banking solutions', category: 'data', color: '#e74c3c' },
+  { id: 20, name: 'Data Extraction', category: 'automation', color: '#34495e' },
+  { id: 21, name: 'Documentation Processing', category: 'automation', color: '#34495e' },
+  { id: 22, name: 'Low-complexity Customer Requests', category: 'automation', color: '#34495e' },
+  { id: 23, name: 'Email Processing', category: 'automation', color: '#34495e' },
+  { id: 24, name: 'Streamlining back-office activities', category: 'automation', color: '#34495e' },
+  { id: 25, name: 'Biometric authentication', category: 'other', color: '#95a5a6'},
+  { id: 26, name: 'Personalized financial advice', category: 'other', color: '#95a5a6' },
+  { id: 27, name: 'Automated trading', category: 'other', color: '#95a5a6' },
+  { id: 28, name: 'Multilingual content generation and translation', category: 'other', color: '#95a5a6' }
 ];
 
 const categories = [
   { name: 'Risk Assessment', color: '#3498db', example: "JPMorgan Chase uses AI for real-time fraud detection and risk management." },
   { name: 'Customer Support', color: '#f1c40f', example: "Bank of America implemented Erica, their AI-powered virtual assistant, in 2018." },
   { name: 'Marketing', color: '#9b59b6', example: "Wells Fargo uses AI for personalized marketing and product recommendations." },
+  { name: 'Data Analytics', color: '#e74c3c', example: "HSBC uses AI to analyze customer data and predict future trends." },
   { name: 'Automation', color: '#34495e', example: "Capital One uses AI to automate repetitive tasks and improve efficiency." },
+  { name: 'Other', color: '#95a5a6', example: "Citi uses AI for biometric authentication and personalized financial advice." }
 ];
 
 const UseCases = () => {
@@ -73,7 +86,7 @@ const UseCases = () => {
       <div className="category-example">
         {hoveredCategory 
           ? categories.find(cat => cat.name.toLowerCase() === hoveredCategory).example
-          : "Explore how leading global banks are leveraging AI. Hover over categories to see real-world examples."}
+          : "Explore how leading global banks are leveraging AI."}
       </div>
       <div className="citation-use-case">
         <p>Mastercard. (2019). <i>Artificial intelligence in banking: Implementing buzzword tech.</i></p>
