@@ -1389,6 +1389,7 @@ input:checked + .slider:before {
   color: white;
   position: relative;
   overflow: hidden;
+  padding-right: 8rem;
 }
 
 .acknowledgements-content {
@@ -1485,7 +1486,6 @@ input:checked + .slider:before {
 /* Value Proposition */
 
 
-
 .value-proposition {
   min-height: 100vh;
   display: flex;
@@ -1510,7 +1510,7 @@ input:checked + .slider:before {
 }
 
 .value-proposition p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -1527,8 +1527,8 @@ input:checked + .slider:before {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 4rem;
+  margin-top: 5rem;
 }
 
 .feature-card {
@@ -1543,51 +1543,17 @@ input:checked + .slider:before {
   box-shadow: 0 5px 15px rgba(247, 158, 27, 0.2);
 }
 
-.feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
 .feature-card h3 {
   color: #F79E1B;
   margin-bottom: 0.5rem;
 }
 
-.differentiation {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 2rem;
-}
-
-.differentiation h3 {
-  color: #F79E1B;
-  margin-bottom: 1rem;
-}
-
-.differentiation ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.differentiation li {
-  margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.differentiation li::before {
-  content: "•";
-  color: #F79E1B;
-  position: absolute;
-  left: 0;
-}
 
 @media (max-width: 768px) {
   .features-grid {
     grid-template-columns: 1fr;
   }
 }
-
 
 
 
