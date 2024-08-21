@@ -17,7 +17,7 @@ The application is available at `https://mastercard-ai-solutions.vercel.app/`.
 
 ## Demo
 
-[YouTube Demo]()
+[YouTube Demo](https://youtu.be/Hb6lzs8-Hes)
 
 ## Dependencies
 
