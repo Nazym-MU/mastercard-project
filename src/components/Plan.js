@@ -62,7 +62,7 @@ const Plan = () => {
             <p className='markformc-font-regular'>
             We conducted research and narrowed down the focus of our project to address the following question:
             </p>
-            <p className='hypothesis'>How might we evaluate the current state and provide necessary steps and recommendations to Kazakhstan’s second-tier banks to accelerate their AI adoption process??</p>
+            <p className='hypothesis'>How might we evaluate the current state and provide necessary steps and recommendations to Kazakhstan’s second-tier banks to accelerate their AI adoption process?</p>
             <p>The following hypothesis served as a guiding framework for developing a solution:</p>
             <p className="hypothesis">
               "Kazakhstan banks lag behind international counterparts in AI adoption due to three main factors: insufficient technological infrastructure, a shortage of skilled AI professionals, and issues with regulatory compliance."
