@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const sections = [
+  { id: 'solution', title: 'Solution Plan' },
   { id: 'market', title: 'Market Research' },
   { id: 'data', title: 'Data Collection' },
-  { id: 'solution', title: 'Solution Plan' },
   { id: 'prototype', title: 'Project Prototype' },
 ];
 

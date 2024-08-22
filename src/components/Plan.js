@@ -60,10 +60,10 @@ const Plan = () => {
           </div>
           <div className="content hypothesis-text" ref={addToRefs}>
             <p className='markformc-font-regular'>
-            After conducting research, we narrowed down the focus of our project to address the following question:
+            We conducted research and narrowed down the focus of our project to address the following question:
             </p>
             <p className='hypothesis'>How might we evaluate the current state and provide necessary steps and recommendations to Kazakhstan’s second-tier banks to accelerate their AI adoption process??</p>
-            <p>The following hypothesis serves as a guiding framework for developing a solution:</p>
+            <p>The following hypothesis served as a guiding framework for developing a solution:</p>
             <p className="hypothesis">
               "Kazakhstan banks lag behind international counterparts in AI adoption due to three main factors: insufficient technological infrastructure, a shortage of skilled AI professionals, and issues with regulatory compliance."
             </p>
@@ -75,7 +75,7 @@ const Plan = () => {
           </div>
           <div className="content" ref={addToRefs}>
             <p className='markformc-font-regular'>Our research has identified a significant gap in AI adoption and utilization within the Kazakhstani banking sector compared to global counterparts.</p>
-            <p>AI technologies offer huge potential for enhancing efficiency, but many Kazakhstan banks are struggling to effectively implement and leverage these tools.</p>
+            <p>AI technologies offer huge potential for enhancing efficiency, but many Kazakhstan banks are struggling to effectively implement these tools.</p>
             <p className='hypothesis'>They lack the deeper knowledge and understanding needed to effectively implement AI technologies.</p>
           </div>
         </div>
@@ -84,10 +84,10 @@ const Plan = () => {
             <h2>Solution</h2>
           </div>
           <div className="content" ref={addToRefs}>
-            <p>To address these challenges, we propose:</p>
-            <p className='hypothesis'>The development of an AI adoption self-assessment tool for Kazakhstani banks.</p>
-            <p>This tool aims to provide a comprehensive assessment of a bank's readiness for AI and offer tailored recommendations to improve AI adoption.</p>
-            <p>We identified a comprehensive AI readiness questionnaire developed by an AI leader Allie K. Miller, which serves as the foundation for our self-assessment tool.</p>
+            <p>To address these challenges, we proposed:</p>
+            <p className='hypothesis'>The development of an AI adoption assessment tool for Kazakhstani banks.</p>
+            <p>It provides a comprehensive assessment of a bank's AI readiness and offer tailored recommendations to improve AI adoption.</p>
+            <p>We identified a comprehensive AI readiness questionnaire developed by an AI leader Allie K. Miller, which serves as the foundation for our assessment tool.</p>
             <p>Through extensive interviews with AI experts, bank executives, and data scientists, coupled with in-depth research, we've developed a set of tailored recommendations for banks at different stages of AI readiness.</p>
             <button className="get-started-button markformc-font-medium" onClick={scrollToPrototype}>Test the prototype</button>
           </div>

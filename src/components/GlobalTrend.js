@@ -10,6 +10,9 @@ const statistics = [
 
 const GlobalTrend = () => (
   <section className="global-trend" id="market">
+    <div className="title-row">
+      <h1>Market Research</h1>
+    </div>
     <div className="statistics-row">
       {statistics.map((stat, index) => (
         <React.Fragment key={index}>
@@ -20,5 +23,6 @@ const GlobalTrend = () => (
     </div>
   </section>
 );
+
 
 export default GlobalTrend;

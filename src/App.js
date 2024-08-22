@@ -43,6 +43,7 @@ const App = () => {
       <Logo />
       <main>
         <Intro />
+        <Plan />
         <GlobalTrend />
         <UseCases />
         <Challenges />
@@ -52,7 +53,6 @@ const App = () => {
         <Interview />
         <SwotAnalysis />
         <Problem />
-        <Plan />
         <Prototype />
         <ValueProposition />
         <Acknowledgements />
