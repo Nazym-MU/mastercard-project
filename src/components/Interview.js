@@ -30,23 +30,27 @@ const insights = [
 const interviews = [
   {
     name: "Yerik Umurzakov",
-    title: "Ex-Jusan Director",
-    date: "July 19, 2024"
+    title: "Mastercard Advisor and C-level Bank Executive",
+    date: "July 19, 2024",
+    image: "/interview_1.jpeg"
   },
   {
     name: "Nailya Alim",
     title: "AI Specialist and NLP Engineer",
-    date: "July 29, 2024"
+    date: "July 29, 2024",
+    image: "/interview_2.jpeg"
   },
   {
     name: "Asset Sadybekov",
     title: "Director of ForteBank’s Astana Branch",
-    date: "July 29, 2024"
+    date: "July 29, 2024",
+    image: "/interview_3.png"
   },
   {
     name: "Aidana Kaskyrbek",
     title: "Advisor to the Chairman of the National Payment Corporation in Kazakhstan",
-    date: "August 12, 2024"
+    date: "August 12, 2024",
+    image: "/interview_4.jpeg"
   }
 ];
 
@@ -60,9 +64,14 @@ const Interview = () => {
           <div className="interview-list">
             {interviews.map((interview, index) => (
               <div key={index} className="interview-card">
-                <h3>{interview.name}</h3>
-                <p>{interview.title}</p>
-                <p>{interview.date}</p>
+                <div className="interview-image-container">
+                  <img src={interview.image} alt={interview.name} className="interview-image" />
+                </div>
+                <div className="interview-details">
+                  <h3>{interview.name}</h3>
+                  <p>{interview.title}</p>
+                  <p>{interview.date}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -84,4 +93,3 @@ const Interview = () => {
 };
 
 export default Interview;
-
